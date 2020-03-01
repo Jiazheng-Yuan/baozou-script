@@ -21,7 +21,8 @@ def qixielueduo():
             count = 0
             for item in res["reward"]:
                 if item['reward_param'] != 2 and item['reward_param'] != 0:
-                    count += 1
+                    count += item['reward_value']
+            print(count)
             if count >= 4:
                 print(res)
                 lottery = "p://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_{}&&m=lottery&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158239941428587".format(category,token)
@@ -31,5 +32,5 @@ def qixielueduo():
         except:
             pass
 if __name__ == "__main__":
-    for i in range(14):
+    for i in range(1):
         qixielueduo()
