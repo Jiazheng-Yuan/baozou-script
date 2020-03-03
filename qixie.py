@@ -7,7 +7,7 @@ def get_content(password,user):
     content = json.loads(content)
     return content
 def qixielueduo():
-    categories = ["stone","tree"]
+    categories = ["tree","stone"]
     token = get_content("yjz2012123", "yjz2012123")['token']
     for category in categories:
         try:
@@ -20,9 +20,10 @@ def qixielueduo():
             res = json.loads(requests.post(finish_url).content.decode())
             count = 0
             for item in res["reward"]:
+                print(item)
                 if item['reward_param'] != 2 and item['reward_param'] != 0:
                     count += item['reward_value']
-            print(count)
+
             if count >= 4:
                 print(res)
                 lottery = "p://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_{}&&m=lottery&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158239941428587".format(category,token)
@@ -32,5 +33,5 @@ def qixielueduo():
         except:
             pass
 if __name__ == "__main__":
-    for i in range(1):
+    for i in range(14):
         qixielueduo()
