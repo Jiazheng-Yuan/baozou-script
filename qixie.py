@@ -33,5 +33,29 @@ def qixielueduo():
         except:
             pass
 if __name__ == "__main__":
+
+    content = get_content("yjz2012123", "yjz2012123")
+    arena_jifen_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=arena&&m=get_reward&&token_uid=31973&token=" + \
+                      content['token'] + "&channel=9&lang=zh-cn&rand=156255546745079"
+    requests.post(arena_jifen_url)
+    # fuck_kenglila_check = "http://s32.game.baozouwushuang.com/index.php?v=0&c=country&&m=get_audit_list&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=156265322894261"
+    # fuck_kenglila_confirm = "http://s32.game.baozouwushuang.com/index.php?v=0&c=country&&m=ignore_all&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=156265323552191"
+    # requests.post(fuck_kenglila_check)
+    # requests.post(fuck_kenglila_confirm)
+
+    world_boss_jifen = "http://s32.game.baozouwushuang.com/index.php?v=0&c=worldboss&&m=reward&&token_uid=31973&token=" + \
+                       content['token'] + "&channel=9&lang=zh-cn&rand=156257044398440"
+    requests.post(world_boss_jifen)
+
+    consecutive_login_check = "http://s32.game.baozouwushuang.com/index.php?v=0&c=logined&&m=index&&token_uid=31973&token=" + \
+                              content['token'] + "&channel=9&lang=zh-cn&rand=156255851095191"
+    consecutive_login_get = "http://s32.game.baozouwushuang.com/index.php?v=0&c=logined&&m=get_reward&&token_uid=31973&token=" + \
+                            content['token'] + "&channel=9&lang=zh-cn&rand=156255851419186&id=15"
+    requests.post(consecutive_login_check)
+    requests.post(consecutive_login_get)
+    free_yuanbao = "http://s32.game.baozouwushuang.com/index.php?v=0&c=christmasgift&&m=get_reward&&token_uid=31973&token=" + \
+                   content['token'] + "&channel=9&lang=zh-cn&rand=156255551968282&id=2"
+    requests.post(free_yuanbao)
+
     for i in range(14):
         qixielueduo()
