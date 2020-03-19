@@ -59,3 +59,9 @@ if __name__ == "__main__":
 
     for i in range(14):
         qixielueduo()
+    user_info = [["123456","buwzzxh" + str(i)] for i in range(148,151)] + ["yjz2012123","yjz2012123"]
+    for password,username in user_info:
+        content = get_content(password,username)
+        token = content['token']
+        yuanbao_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=actjubao&&m=action&&token_uid=31973&token=" + token + "&channel=9&lang=zh-cn&rand=157732067703616&type=1"
+        requests.post(yuanbao_url)
