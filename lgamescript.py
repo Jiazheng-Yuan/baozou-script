@@ -428,7 +428,7 @@ def all_longzhou(buy="notbuy"):
     password = "123456"
     user_info = [[password, userprefix + str(j)] for j in range(1, 3)] + [[password, userprefix + str(j)] for j in
                                                                           range(51, 86)]  # 86
-
+    print("loop start")
     for i in range(len(user_info)):
 
         content = get_content(user_info[i][0], user_info[i][1])
