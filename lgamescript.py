@@ -433,6 +433,7 @@ def all_longzhou(buy="notbuy"):
 
         content = get_content(user_info[i][0], user_info[i][1])
         token = content['token']
+        print("debug start,user {}".format(user_info[i]))
         yuanbao_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=actjubao&&m=action&&token_uid=31973&token=" + token + "&channel=9&lang=zh-cn&rand=157732067703616&type=1"
         requests.post(yuanbao_url)
         print(user_info[i])
