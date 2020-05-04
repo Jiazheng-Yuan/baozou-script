@@ -21,5 +21,7 @@ if __name__ == "__main__":
             elif status == -2:
                 file.write(u + "\n" )
                 file.flush()
-            record.write(counter)
+            if counter % 10000 == 0:
+                record.write(counter)
+                record.flush()
 
