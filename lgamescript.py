@@ -574,11 +574,11 @@ if __name__ == "__main__":
     # token = get_content("123456","buwzzxh52")["token"]
     # longzhou(token)
 
-    all_longzhou()
-    all_longzhou()
-    # xinnian_rob()
-    all_longzhou("buy")
-    # xiaohao_donation()
+    # all_longzhou()
+    # all_longzhou()
+    # # xinnian_rob()
+    # all_longzhou("buy")
+    # # xiaohao_donation()
     # all_longzhou("buy")
     # tuitu()
     # response = requests.post("http://s32.game.baozouwushuang.com/index.php?v=0&c=worldboss&&m=battle&&token_uid=31973&token=FS5ybWAd6z6nnApI33oYJg&channel=9&lang=zh-cn&rand=15600525866585&now=0")
@@ -699,15 +699,15 @@ if __name__ == "__main__":
     # for i in range(200):
     #     requests.post(trade_url)
 
-    # r = requests.post(
-    #     "http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
-    # content = r.content.decode()
-    # content = json.loads(content)
-    #
-    # content = get_content("yjz2012123","yjz2012123")
-    # url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=essence_map&&m=pk&&d=newequip&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=15542097741062&monster_id="
-    # for j in range(1,4):
-    #     for k in range(1, 4):
-    #         for i in range(1,11):
-    #
-    #             requests.post(url + str(i)+"&id="+str(j)+"&diff_id="+str(k))
+    r = requests.post(
+        "http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
+    content = r.content.decode()
+    content = json.loads(content)
+
+    
+    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=essence_map&&m=pk&&d=newequip&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=15542097741062&monster_id="
+    for j in range(1,4):
+        for k in range(1, 4):
+            for i in range(1,11):
+
+                requests.post(url + str(i)+"&id="+str(j)+"&diff_id="+str(k))
