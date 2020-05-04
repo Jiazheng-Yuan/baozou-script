@@ -22,6 +22,7 @@ if __name__ == "__main__":
                 file.write(u + "\n" )
                 file.flush()
             if counter % 10000 == 0:
-                record.write(str(counter))
+                record.write(str(counter) + "\n")
                 record.flush()
+            counter += 1
 
