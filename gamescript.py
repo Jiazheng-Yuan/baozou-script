@@ -372,7 +372,7 @@ def xiaohao_donation():
     userprefix = "buwzzxh"
     password = "123456"
     user_info = [[password, userprefix + str(j)] for j in range(1, 3)] + [[password, userprefix + str(j)] for j in
-                                                                          range(75, 86)]  # 86
+                                                                          range(51, 86)]  # 86
     for i in range(len(user_info)):
         content = get_content(user_info[i][0], user_info[i][1])
         if "token" not in content:
@@ -442,7 +442,7 @@ if __name__ == "__main__":
     #all_longzhou()
     #xinnian_rob()
     #all_longzhou("buy")
-    #xiaohao_donation()
+    xiaohao_donation()
     # all_longzhou("buy")
 
     #response = requests.post("http://s32.game.baozouwushuang.com/index.php?v=0&c=worldboss&&m=battle&&token_uid=31973&token=FS5ybWAd6z6nnApI33oYJg&channel=9&lang=zh-cn&rand=15600525866585&now=0")
@@ -569,22 +569,22 @@ if __name__ == "__main__":
     #         for i in range(1,11):
     #
     #             requests.post(url + str(i)+"&id="+str(j)+"&diff_id="+str(k))
-    token = get_content("yjz2012123","yjz2012123")['token']
-    for i in range(1,7):
-        tree_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218185981691"
-        tree_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=15821818285074&site={}".format(token,str(i))
-        tree_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218291970117&site={}".format(token,i)
-        stone_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218268718163"
-        stone_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218268673528&site={}".format(token,i)
-        stone_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218299778325&site={}".format(token,i)
-
-        requests.post(tree_index)
-        requests.post(tree_gather)
-        requests.post(tree_index)
-        requests.post(tree_occupy)
-        requests.post(stone_index)
-        requests.post(stone_gather)
-        requests.post(stone_index)
-        requests.post(stone_occupy)
+    # token = get_content("yjz2012123","yjz2012123")['token']
+    # for i in range(1,7):
+    #     tree_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218185981691"
+    #     tree_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=15821818285074&site={}".format(token,str(i))
+    #     tree_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218291970117&site={}".format(token,i)
+    #     stone_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218268718163"
+    #     stone_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218268673528&site={}".format(token,i)
+    #     stone_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218299778325&site={}".format(token,i)
+    #
+    #     requests.post(tree_index)
+    #     requests.post(tree_gather)
+    #     requests.post(tree_index)
+    #     requests.post(tree_occupy)
+    #     requests.post(stone_index)
+    #     requests.post(stone_gather)
+    #     requests.post(stone_index)
+    #     requests.post(stone_occupy)
 
 
