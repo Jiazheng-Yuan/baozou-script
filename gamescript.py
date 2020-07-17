@@ -387,7 +387,7 @@ def xiaohao_donation():
         lottery_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=lottery&&m=action&&token_uid=6792227&token=" + token + "&channel=1&lang=zh-cn&rand=157743516577048"
         for i in range(7):
             requests.post(lottery_url)
-        for i in range(20):
+        for i in range(4):
             requests.post(DONATE_URL)
 def xinnianzhanling():
     content = get_content("yjz2012123","yjz2012123")
@@ -430,6 +430,12 @@ def temp(url):
     #url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=ladder_war&&m=ladder_battle&&token_uid=31973&token="+get_content("yjz2012123","yjz2012123")["token"]+"&channel=9&lang=zh-cn&rand=158037374341422&id=3"
     #threading.Thread(target=requests.post,args=(url,))
     requests.post(url)
+
+def duanwu(token):
+    url_check = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=quyuan_festival&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=159315056962625"
+    url_open_poll = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=quyuan_festival&&m=poll_index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=159315064699443"
+    poll_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=quyuan_festival&&m=poll_index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=159315068784330"
+    vote_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=quyuan_festival&&m=poll&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=159315068753088&zongzi=1"
 if __name__ == "__main__":
     #content = get_content( "123456","buwzzxh53")
     #arena_jifen_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=arena&&m=get_reward&&token_uid=31973&token=" + content['token'] + "&channel=9&lang=zh-cn&rand=156255546745079"
@@ -570,21 +576,21 @@ if __name__ == "__main__":
     #
     #             requests.post(url + str(i)+"&id="+str(j)+"&diff_id="+str(k))
     # token = get_content("yjz2012123","yjz2012123")['token']
-    # for i in range(1,7):
-    #     tree_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218185981691"
-    #     tree_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=15821818285074&site={}".format(token,str(i))
-    #     tree_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218291970117&site={}".format(token,i)
-    #     stone_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218268718163"
-    #     stone_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218268673528&site={}".format(token,i)
-    #     stone_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218299778325&site={}".format(token,i)
-    #
-    #     requests.post(tree_index)
-    #     requests.post(tree_gather)
-    #     requests.post(tree_index)
-    #     requests.post(tree_occupy)
-    #     requests.post(stone_index)
-    #     requests.post(stone_gather)
-    #     requests.post(stone_index)
-    #     requests.post(stone_occupy)
+    for i in range(1,7):
+        tree_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218185981691"
+        tree_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=15821818285074&site={}".format(token,str(i))
+        tree_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218291970117&site={}".format(token,i)
+        stone_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218268718163"
+        stone_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218268673528&site={}".format(token,i)
+        stone_occupy = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_stone&&m=action&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=158218299778325&site={}".format(token,i)
+
+        requests.post(tree_index)
+        requests.post(tree_gather)
+        requests.post(tree_index)
+        requests.post(tree_occupy)
+        requests.post(stone_index)
+        requests.post(stone_gather)
+        requests.post(stone_index)
+        requests.post(stone_occupy)
 
 
