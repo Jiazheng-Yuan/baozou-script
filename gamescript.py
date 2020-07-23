@@ -448,7 +448,7 @@ if __name__ == "__main__":
     #all_longzhou()
     #xinnian_rob()
     #all_longzhou("buy")
-    xiaohao_donation()
+    #xiaohao_donation()
     # all_longzhou("buy")
 
     #response = requests.post("http://s32.game.baozouwushuang.com/index.php?v=0&c=worldboss&&m=battle&&token_uid=31973&token=FS5ybWAd6z6nnApI33oYJg&channel=9&lang=zh-cn&rand=15600525866585&now=0")
