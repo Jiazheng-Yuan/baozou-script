@@ -575,7 +575,7 @@ if __name__ == "__main__":
     #         for i in range(1,11):
     #
     #             requests.post(url + str(i)+"&id="+str(j)+"&diff_id="+str(k))
-    # token = get_content("yjz2012123","yjz2012123")['token']
+    token = get_content("yjz2012123","yjz2012123")['token']
     for i in range(1,7):
         tree_index = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=index&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=158218185981691"
         tree_gather = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=exploit_tree&&m=gather&&token_uid=31973&token={}&channel=9&lang=zh-cn&rand=15821818285074&site={}".format(token,str(i))
