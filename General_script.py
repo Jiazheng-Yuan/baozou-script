@@ -58,4 +58,4 @@ def xiaohao_donation():
 if __name__ == "__main__":
     zhuzhen()
     jifen()
-    xiaohao_donation()
+    #xiaohao_donation()
