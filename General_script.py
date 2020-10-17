@@ -53,7 +53,7 @@ def xiaohao_donation():
         lottery_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=lottery&&m=action&&token_uid=6792227&token=" + token + "&channel=1&lang=zh-cn&rand=157743516577048"
         for i in range(7):
             requests.post(lottery_url)
-        for i in range(20):
+        for i in range(60):
             requests.post(DONATE_URL)
 def xiaohao_levelup():
     userprefix = "buwzzxh"
