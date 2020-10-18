@@ -169,5 +169,5 @@ import random
 if __name__ == "__main__":
     zhuzhen()
     jifen()
-    xiaohao_donation()
-    xiaohao_silver()
+    # xiaohao_donation()
+    # xiaohao_silver()
