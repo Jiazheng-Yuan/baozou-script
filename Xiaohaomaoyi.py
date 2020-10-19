@@ -41,5 +41,5 @@ def xiaohao_trade():
         resp = requests.post(join_team.format(site=cur_site,id=cur_id)).content.decode()
         tradebyforce = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=overseastrade&&m=trade&&token_uid=6792235&token="+token+"&channel=1&lang=zh-cn&rand=1602921874&signature=21cf1c3d1bf90a33c0a04e5c98d42fba"
         requests.post(tradebyforce)
-if __name__ == "__main__":
-    xiaohao_trade()
+# if __name__ == "__main__":
+#     xiaohao_trade()
