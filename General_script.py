@@ -166,8 +166,31 @@ def xiaohao_silver():
 #         resp = json.loads(requests.post(xunlian1_url).content.decode())
 #         if str(resp['status']) == "-4":
 import random
+
+def xiaohaoshengguan():
+    userprefix = "buwzzxh"
+    password = "123456"
+    user_info = [[password, userprefix + str(j)] for j in range(1, 1)] + [[password, userprefix + str(j)] for j in
+                                                                          range(57, 86)]  # 86
+
+
+
+    for i in range(len(user_info)):
+        content = get_content(user_info[i][0], user_info[i][1])
+        token = content['token']
+        if "token" not in content:
+            print("###########################3" + str(user_info[i]))
+            continue
+        for i in range(30):
+            usurp_info_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=country&&m=get_usurp_info&&token_uid=6792226&token=" + token + "&channel=1&lang=zh-cn&rand=1603059468&signature=bacd2c82fb71c8047bb2224280273027"
+            usurp_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=country&&m=usurp&&token_uid=6792226&token=" + token + "&channel=1&lang=zh-cn&rand=1603059468&signature=bacd2c82fb71c8047bb2224280273027"
+        print_response(usurp_info_url)
+        print_response(usurp_url)
+
 if __name__ == "__main__":
     zhuzhen()
     jifen()
+    # for i in range(40):
+    #     xiaohaoshengguan()
     # xiaohao_donation()
     # xiaohao_silver()
