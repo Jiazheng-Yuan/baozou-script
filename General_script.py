@@ -187,10 +187,14 @@ def xiaohaoshengguan():
         print_response(usurp_info_url)
         print_response(usurp_url)
 
+def sweep():
+    juexing_sweep_check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=awaken_copy&&m=sweep_index&&token_uid=31973&token=aHjfXDrSsS9NqOBritPmpQ&channel=9&lang=zh-cn&rand=1603186364&signature=9eeb9012ee7e31239750b8fdd560d8a6&check=57"
+    juexing_sweep_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=awaken_copy&&m=sweep&&token_uid=31973&token=aHjfXDrSsS9NqOBritPmpQ&channel=9&lang=zh-cn&rand=1603186364&signature=9eeb9012ee7e31239750b8fdd560d8a6&check=57&times=5"
+def all_freebee():
+    jinji_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=chicken&&m=get_vip_reward&&token_uid=31973&token=eSFMokLSPZQNf91r4FgAzA&channel=9&lang=zh-cn&rand=1603186709&signature=fc4c5c833d98b87aaa78897394cb29e7&id=40"
 if __name__ == "__main__":
     zhuzhen()
     jifen()
-    # for i in range(40):
-    #     xiaohaoshengguan()
-    # xiaohao_donation()
-    # xiaohao_silver()
+
+    xiaohao_donation()
+    xiaohao_silver()
