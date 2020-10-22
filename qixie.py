@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     for i in range(14):
         qixielueduo()
-    user_info = [["123456","buwzzxh" + str(i)] for i in range(148,151)] + ["yjz2012123","yjz2012123"]
+    user_info = [["123456","buwzzxh" + str(i)] for i in range(148,151)] + [["yjz2012123","yjz2012123"]]
     for password,username in user_info:
         content = get_content(password,username)
         token = content['token']
