@@ -5,7 +5,7 @@ import time
 
 
 def lottery_rank(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=springlottery&&m=index&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=springlottery&&m=index&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155099070112696"
     while True:
         r = requests.post(url)
@@ -15,14 +15,14 @@ def lottery_rank(content):
             break
     # print(len(userlist))
 
-    url_lottery = "http://s32.game.baozouwushuang.com/index.php?v=0&c=springlottery&&m=action&&token_uid=31973&token=" + \
+    url_lottery = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=springlottery&&m=action&&token_uid=31973&token=" + \
                   content['token'] + "&channel=9&lang=zh-cn&rand=155099234854935"
     # print(r.content[])
     requests.post(url_lottery)
 
 
 def silver_hole(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=island&m=pk&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=island&m=pk&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155099000816495&id="
     for i in range(84, 86):
         requests.post(url + str(i))
@@ -33,16 +33,16 @@ def silver_hole(content):
 
 
 def sign_in(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=sign&&m=sign_index&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=sign&&m=sign_index&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155099296558640"
     r = requests.post(url)
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=logined&m=get_reward&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=logined&m=get_reward&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155132492285595&id=15"
     requests.post(url)
 
 
 def donate(content, times):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=country&&m=donate&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=country&&m=donate&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155099312403245&type=1"
     for i in range(times):
         # pool.apply_async(requests.post, [url])
@@ -50,23 +50,23 @@ def donate(content, times):
 
 
 def sacfirice_for_nation(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=countrysacrifice&m=action&token_uid=31973&token=" + \
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=countrysacrifice&m=action&token_uid=31973&token=" + \
           content['token'] + "&channel=9&lang=zh-cn&rand=155099341822220&id=1"
     r = requests.post(url)
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=country&&m=get_salary&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=country&&m=get_salary&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155102761189739"
     requests.post(url)
 
 
 def business(content):
     token = content['token']
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=business&&m=index&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=business&&m=index&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155099586487582"
     re = requests.post(url)
     content = json.loads(re.content.decode())
     traders = content['trader']
 
-    # url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=business&m=go_business&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=155099356533783&id=6"
+    # url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=business&m=go_business&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=155099356533783&id=6"
     # for i in range(80):
     # re = requests.post(url)
     # content = json.loads(re.content.decode())
@@ -74,7 +74,7 @@ def business(content):
     while True:
         trader_id = str(traders[0]['id'])
         # print(trader_id)
-        url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=business&m=go_business&token_uid=31973&token=" + \
+        url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=business&m=go_business&token_uid=31973&token=" + \
               token + "&channel=9&lang=zh-cn&rand=155099356533783&id=" + trader_id
         re = requests.post(url)
         content = json.loads(re.content.decode())
@@ -88,7 +88,7 @@ def business(content):
 
 
 def jade_mine(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=countrymine&&m=index&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=countrymine&&m=index&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155099446630583"
     re = requests.post(url)
     response_content = json.loads(re.content.decode())
@@ -100,26 +100,26 @@ def jade_mine(content):
 
 
 def shenjiangzhimen(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=generaltask&m=action&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=generaltask&m=action&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155099655983030&id=399&type=0&gid=362120"
     for i in range(10):
         requests.post(url)
 
 
 def hero_throne(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=herothrone&&m=index&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=herothrone&&m=index&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155176609795753"
     requests.post(url)
     for i in range(4):
         try:
-            url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=herothrone&&m=start&&token_uid=31973&token=" + \
+            url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=herothrone&&m=start&&token_uid=31973&token=" + \
                   content['token'] + "&channel=9&lang=zh-cn&rand=155102736139239"
             requests.post(url)
         except:
             return
-        url_391 = "http://s32.game.baozouwushuang.com/index.php?v=0&c=herothrone&&m=action&&token_uid=31973&token=" + \
+        url_391 = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=herothrone&&m=action&&token_uid=31973&token=" + \
                   content['token'] + "&channel=9&lang=zh-cn&rand=155099683928379"
-        # url_392 = "http://s32.game.baozouwushuang.com/index.php?v=0&c=herothrone&&m=action&&token_uid=31973&token=FJ8ZTtOt96no73HhibG9mQ&channel=9&lang=zh-cn&rand=155099693188373"
+        # url_392 = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=herothrone&&m=action&&token_uid=31973&token=FJ8ZTtOt96no73HhibG9mQ&channel=9&lang=zh-cn&rand=155099693188373"
         for i in range(10):
             re = requests.post(url_391)
             print(json.loads(re.content.decode()))
@@ -127,33 +127,33 @@ def hero_throne(content):
 
 
 def dice(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=dice&&m=shake_dice&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=dice&&m=shake_dice&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155102770131520"
     for i in range(7):
         requests.post(url)
 
 
 def jianghunxinglu(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=tower&m=get_mopup_price&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=tower&m=get_mopup_price&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155102830162193&id=118"
     re = requests.post(url)
     condition = json.loads(re.content.decode())
     if int(condition['info']['ten_sub']) == 0:
-        url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=tower&m=mop_up&token_uid=31973&token=" + content[
+        url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=tower&m=mop_up&token_uid=31973&token=" + content[
             'token'] + "&channel=9&lang=zh-cn&rand=155102790179643&id=118&times=10"
         re = requests.post(url)
         # print(re.content)
 
 
 def atk_roll(content):
-    check_status_url_pre = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&m=mission&token_uid=31973&token=" + \
+    check_status_url_pre = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&m=mission&token_uid=31973&token=" + \
                            content['token'] + "&channel=9&lang=zh-cn&rand=155102870704658&"
 
-    necessary_pre_check_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=member&&m=index&&token_uid=31973&token=" + \
+    necessary_pre_check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=member&&m=index&&token_uid=31973&token=" + \
                               content['token'] + "&channel=9&lang=zh-cn&rand=155103095467635"
-    battle_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&m=action&token_uid=31973&token=" + content[
+    battle_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&m=action&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155103095467635&"  # l=18&s=1&id=8&times=5"
-    map_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&&m=get_mission_list&&token_uid=31973&token=" + \
+    map_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&&m=get_mission_list&&token_uid=31973&token=" + \
               content['token'] + "&channel=9&lang=zh-cn&rand=15510326043749"
     for l in range(17, 19):
         for s in range(1, 8):
@@ -177,35 +177,35 @@ def atk_roll(content):
 
 
 def jewel(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=sanctum&m=action&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=sanctum&m=action&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155132506502966&id=250&times=1"
     for i in range(10):
         requests.post(url)
 
 
 def tongtianta(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=heaven&m=mop_up&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=heaven&m=mop_up&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155132527649516&id=177&times=10"
     requests.post(url)
 
 
 def shenzhu(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
           content['token'] + "&channel=9&lang=zh-cn&rand=15513239203246&times=5&monster_id=6&diff_id=3&id=3"
     requests.post(url)
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
           content['token'] + "&channel=9&lang=zh-cn&rand=15513239203246&times=5&monster_id=10&diff_id=3&id=3"
     requests.post(url)
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
           content['token'] + "&channel=9&lang=zh-cn&rand=155132427716932&id=1&diff_id=3&monster_id=10&times=5"
     requests.post(url)
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=copies&m=mop_up&d=newequip&token_uid=31973&token=" + \
           content['token'] + "&channel=9&lang=zh-cn&rand=155132427716932&id=1&diff_id=3&monster_id=6&times=5"
     requests.post(url)
 
 
 def daily_lottery(content):
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=lottery&&m=action&&token_uid=31973&token=" + content[
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=lottery&&m=action&&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155132452941485"
     for i in range(7):
         requests.post(url)
@@ -215,18 +215,18 @@ def xiaohao():
     password = "zzz2012123"
     usr = "zzz2012123"
     r = requests.post(
-        "http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
+        "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
     content = r.content.decode()
     content = json.loads(content)
 
-    check_status_url_pre = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&m=mission&token_uid=31973&token=" + \
+    check_status_url_pre = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&m=mission&token_uid=31973&token=" + \
                            content['token'] + "&channel=9&lang=zh-cn&rand=155102870704658&"
 
-    necessary_pre_check_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=member&&m=index&&token_uid=31973&token=" + \
+    necessary_pre_check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=member&&m=index&&token_uid=31973&token=" + \
                               content['token'] + "&channel=9&lang=zh-cn&rand=155103095467635"
-    battle_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&m=action&token_uid=31973&token=" + content[
+    battle_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&m=action&token_uid=31973&token=" + content[
         'token'] + "&channel=9&lang=zh-cn&rand=155103095467635&"  # l=18&s=1&id=8&times=5"
-    map_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&&m=get_mission_list&&token_uid=31973&token=" + \
+    map_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&&m=get_mission_list&&token_uid=31973&token=" + \
               content['token'] + "&channel=9&lang=zh-cn&rand=15510326043749"
     for l in range(19, 20):
         for s in range(1, 2):
@@ -249,8 +249,8 @@ def xiaohao():
 
 
 def chaogong(content):
-    check_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=flop&&m=index&&token_uid=31973&token=3Bx_0YOTbrWYQ9dPC4_jOg&channel=9&lang=zh-cn&rand=155655985061498"
-    flop_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=flop&&m=turnover&&token_uid=31973&token=3Bx_0YOTbrWYQ9dPC4_jOg&channel=9&lang=zh-cn&rand=155655979346793&id=5"
+    check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=flop&&m=index&&token_uid=31973&token=3Bx_0YOTbrWYQ9dPC4_jOg&channel=9&lang=zh-cn&rand=155655985061498"
+    flop_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=flop&&m=turnover&&token_uid=31973&token=3Bx_0YOTbrWYQ9dPC4_jOg&channel=9&lang=zh-cn&rand=155655979346793&id=5"
     response = json.loads(requests.post(check_url).content.decode())
     response = json.loads(requests.post(check_url).content.decode())
     for key, item in response.items():
@@ -266,14 +266,14 @@ def chaogong(content):
 def fukuang_harvest(content):
     for i in range(1, 10):
         spot_num = i
-        collect_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=fukubukuro&&m=harvest_mine&&token_uid=31973&token=" + \
+        collect_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=harvest_mine&&token_uid=31973&token=" + \
                       content['token'] + "&channel=9&lang=zh-cn&rand=15565919538656&s=" + str(spot_num)
         response = json.loads(requests.post(collect_url).content.decode())
         print(response)
 
 
 def fukuang_available_spots(content):
-    check_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=" + \
+    check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=" + \
                 content['token'] + "&channel=9&lang=zh-cn&rand=155680885761671&p="
     available_spots = []
     for p in range(1, 6):
@@ -287,10 +287,10 @@ def fukuang_available_spots(content):
     id = 1
     t = 1
     formdata = "&p=" + str(p) + "&id=" + str(id) + "&t=" + str(t)
-    take_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=fukubukuro&&m=action_mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=155659196548989" + formdata
+    take_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=action_mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=155659196548989" + formdata
 
 
-# response = requests.post("http://s32.game.baozouwushuang.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=15565922387968&p=3")
+# response = requests.post("http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=15565922387968&p=3")
 # content = json.loads(response.content.decode())
 # for key,item in content.items():
 #     if key == "list":
@@ -300,17 +300,17 @@ def fukuang_available_spots(content):
 #         print(key,item)
 def lianxiaohao():
     for i in range(2, 3):
-        click = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=map&&m=mission&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659926245678&l=1&s=1&id=" + str(
+        click = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=map&&m=mission&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659926245678&l=1&s=1&id=" + str(
             3)
         requests.post(click)
 
-    battle = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=member&&m=updateguidestep&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659867833050"
-    get_mission_list = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=member&&m=updateguidestep&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659867833050"
-    index = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=member&&m=index&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=15565993617769"
-    hit = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=map&&m=action&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659897286217"
+    battle = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=member&&m=updateguidestep&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659867833050"
+    get_mission_list = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=member&&m=updateguidestep&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659867833050"
+    index = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=member&&m=index&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=15565993617769"
+    hit = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=map&&m=action&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659897286217"
 
-    update_guide = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=member&&m=updateguidestep&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659867833050"
-    mission_list = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=map&&m=get_mission_list&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659942527825"
+    update_guide = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=member&&m=updateguidestep&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659867833050"
+    mission_list = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=map&&m=get_mission_list&&token_uid=6823695&token=ExOaFJpFZIWFzY8p4q7BHw&channel=1&lang=zh-cn&rand=155659942527825"
     pool = [click, get_mission_list, index, hit, update_guide, index, mission_list]
     for url in pool:
         response = requests.post(url)
@@ -318,15 +318,15 @@ def lianxiaohao():
         for key, item in content.items():
             print(key, item)
     # r = requests.post(
-    #     "http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
+    #     "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
     # content = r.content.decode()
     # content = json.loads(content)
     #
-    # check_status_url_pre = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&m=mission&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=155102870704658&"
+    # check_status_url_pre = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&m=mission&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=155102870704658&"
     #
-    # necessary_pre_check_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=member&&m=index&&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=155103095467635"
-    # battle_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&m=action&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=155103095467635&"  # l=18&s=1&id=8&times=5"
-    # map_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=map&&m=get_mission_list&&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=15510326043749"
+    # necessary_pre_check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=member&&m=index&&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=155103095467635"
+    # battle_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&m=action&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=155103095467635&"  # l=18&s=1&id=8&times=5"
+    # map_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&&m=get_mission_list&&token_uid=31973&token=GghT-JRKpcWSBUo5BoPvHw&channel=9&lang=zh-cn&rand=15510326043749"
     # for l in range(1, 2):
     #     for s in range(1, 2):
     #         map_param = "&l=" + str(l) + "&s=" + str(s)
@@ -346,7 +346,7 @@ def lianxiaohao():
 
 def get_content(password, user):
     r = requests.post(
-        "http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=" + user + "&p=" + password + "&adid&channel=9&token=")
+        "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=" + user + "&p=" + password + "&adid&channel=9&token=")
     content = r.content.decode()
     content = json.loads(content)
     return content
@@ -372,7 +372,7 @@ def occupy_fukuang():
         t = spots[i][2]
         formdata = "&p=" + str(p) + "&id=" + str(id) + "&t=" + str(t)
         content = get_content(user_info[i][0], user_info[i][1])
-        take_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=fukubukuro&&m=action_mine&&token_uid=31973&token=" + \
+        take_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=action_mine&&token_uid=31973&token=" + \
                    content['token'] + "&channel=9&lang=zh-cn&rand=155659196548989" + formdata
 
         response = json.loads(requests.post(take_url).content.decode())
@@ -391,11 +391,11 @@ def harvest():
 
 
 def check_lottery_list():
-    checkurl = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=springlottery&&m=index&&token_uid=31973&token=5Fwn1RVD45EzUNU2efCSuw&channel=1&lang=zh-cn&rand=155716722639280"
+    checkurl = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=springlottery&&m=index&&token_uid=31973&token=5Fwn1RVD45EzUNU2efCSuw&channel=1&lang=zh-cn&rand=155716722639280"
     response = json.loads(requests.post(checkurl).content.decode())
     while 'userlist' in response and len(response['userlist']) != 3:
         response = json.loads(requests.post(checkurl).content.decode())
-    draw_url = "http://s32.game.baozouwushuang.com/index.php?v=undefined&c=springlottery&&m=index&&token_uid=31973&token=5Fwn1RVD45EzUNU2efCSuw&channel=1&lang=zh-cn&rand=155716722639280"
+    draw_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=springlottery&&m=index&&token_uid=31973&token=5Fwn1RVD45EzUNU2efCSuw&channel=1&lang=zh-cn&rand=155716722639280"
     if 'userlist' in response and len(response['userlist']) == 3:
         requests.post(draw_url)
 
@@ -569,7 +569,7 @@ if __name__ == "__main__":
     #     qixielueduo()
     # tuitu(1,2)
     # content = get_content( "123456","buwzzxh53")
-    # arena_jifen_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=arena&&m=get_reward&&token_uid=31973&token=" + content['token'] + "&channel=9&lang=zh-cn&rand=156255546745079"
+    # arena_jifen_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=arena&&m=get_reward&&token_uid=31973&token=" + content['token'] + "&channel=9&lang=zh-cn&rand=156255546745079"
     # print(requests.post(arena_jifen_url).content.decode())
     # token = get_content("123456","buwzzxh52")["token"]
     # longzhou(token)
@@ -581,7 +581,7 @@ if __name__ == "__main__":
     # # xiaohao_donation()
     # all_longzhou("buy")
     # tuitu()
-    # response = requests.post("http://s32.game.baozouwushuang.com/index.php?v=0&c=worldboss&&m=battle&&token_uid=31973&token=FS5ybWAd6z6nnApI33oYJg&channel=9&lang=zh-cn&rand=15600525866585&now=0")
+    # response = requests.post("http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=worldboss&&m=battle&&token_uid=31973&token=FS5ybWAd6z6nnApI33oYJg&channel=9&lang=zh-cn&rand=15600525866585&now=0")
     # response = json.loads(response.content.decode())
     # print(response)
     # check_lottery_list()
@@ -598,7 +598,7 @@ if __name__ == "__main__":
     # donate(content,2200)
     # for i in range(26):
     #    chaogong("a")
-    # response = requests.post("http://s32.game.baozouwushuang.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=15565922387968&p=3")
+    # response = requests.post("http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=15565922387968&p=3")
     # content = json.loads(response.content.decode())
     # for key,item in content.items():
     #     if key == "list":
@@ -608,7 +608,7 @@ if __name__ == "__main__":
     #         print(key,item)
     # login
 
-    # r = requests.post("http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
+    # r = requests.post("http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
     # content = r.content.decode()
     # token = json.loads(content)['token']
     # donate(content,2200)
@@ -649,10 +649,10 @@ if __name__ == "__main__":
 
 
 
-    yellow_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=star&m=refining&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246113594820&refine_type=1&id=2"
-    blue_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=star&m=refining&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246130416038&id=1&refine_type=1"
-    purple_url  = "http://s32.game.baozouwushuang.com/index.php?v=0&c=star&m=refining&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246130416038&id=3&refine_type=1"
-    trade_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246249389873"
+    yellow_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246113594820&refine_type=1&id=2"
+    blue_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246130416038&id=1&refine_type=1"
+    purple_url  = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246130416038&id=3&refine_type=1"
+    trade_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token=FfoBJfdZqVuLB6Ck8ehcfw&channel=9&lang=zh-cn&rand=155246249389873"
     for i in range(20):
 
         requests.post(trade_url)
@@ -663,10 +663,10 @@ if __name__ == "__main__":
     """
 
     # token = get_content("yjz2012123","yjz2012123")['token']
-    # yellow_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246113594820&refine_type=1&id=2"
-    # blue_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246130416038&id=1&refine_type=1"
-    # purple_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246130416038&id=3&refine_type=1"
-    # trade_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246249389873"
+    # yellow_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246113594820&refine_type=1&id=2"
+    # blue_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246130416038&id=1&refine_type=1"
+    # purple_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246130416038&id=3&refine_type=1"
+    # trade_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246249389873"
     # def xinghun(url,time):
     #     q = []
     #     for i in range(time):
@@ -695,17 +695,17 @@ if __name__ == "__main__":
     #     requests.post(yellow_url)
     #
     #     requests.post(purple_url)
-    # trade_url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246249389873"
+    # trade_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246249389873"
     # for i in range(200):
     #     requests.post(trade_url)
 
     r = requests.post(
-        "http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
+        "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
     content = r.content.decode()
     content = json.loads(content)
 
     
-    url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=essence_map&&m=pk&&d=newequip&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=15542097741062&monster_id="
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=essence_map&&m=pk&&d=newequip&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=15542097741062&monster_id="
     for j in range(1,4):
         for k in range(1, 4):
             for i in range(1,11):

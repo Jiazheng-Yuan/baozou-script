@@ -2,7 +2,7 @@ import requests
 import json
 def get_content(password,user):
     r = requests.post(
-        "http://s32.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u="+user+"&p="+password+"&adid&channel=9&token=")
+        "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u="+user+"&p="+password+"&adid&channel=9&token=")
     content = r.content.decode()
     print(content)
     content = json.loads(content)
@@ -13,7 +13,7 @@ def xiaohao_trade():
     password = "123456"
 
     def silver_hole(token):
-        url = "http://s32.game.baozouwushuang.com/index.php?v=0&c=island&m=pk&token_uid=31973&token="+token + "&channel=9&lang=zh-cn&rand=155099000816495&id="
+        url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=island&m=pk&token_uid=31973&token="+token + "&channel=9&lang=zh-cn&rand=155099000816495&id="
         for i in range(11, 15):
             requests.post(url + str(i))
         url += "15"
