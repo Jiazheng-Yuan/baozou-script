@@ -201,7 +201,7 @@ def sweep():
 def all_freebee():
     jinji_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=chicken&&m=get_vip_reward&&token_uid=31973&token=eSFMokLSPZQNf91r4FgAzA&channel=9&lang=zh-cn&rand=1603186709&signature=fc4c5c833d98b87aaa78897394cb29e7&id=40"
 if __name__ == "__main__":
-    zhuzhen()
+    #zhuzhen()
     jifen()
 
     xiaohao_donation()
