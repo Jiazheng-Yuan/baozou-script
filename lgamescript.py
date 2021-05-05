@@ -428,6 +428,7 @@ def all_longzhou(buy="notbuy"):
     password = "123456"
     user_info = [[password, userprefix + str(j)] for j in range(1, 3)] + [[password, userprefix + str(j)] for j in
                                                                           range(51, 86)]  # 86
+    user_info.append(["yjz2012123", "yjz2012123"])
     print("loop start")
     for i in range(len(user_info)):
 
@@ -437,7 +438,7 @@ def all_longzhou(buy="notbuy"):
         #yuanbao_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=actjubao&&m=action&&token_uid=31973&token=" + token + "&channel=9&lang=zh-cn&rand=157732067703616&type=1"
         #requests.post(yuanbao_url)
         print(user_info[i])
-        if buy == "buy":
+        if buy == "buy" and user_info[0] != "yjz2012123":
             buytimes = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=go_boating&&m=buy_time&&token_uid=31973&token=" + token + "&channel=1&lang=zh-cn&rand=156986608815118"
             requests.post(buytimes)
         try:
@@ -562,8 +563,17 @@ def qixielueduo():
                 category, token)
             requests.post(lottery)
             requests.post(get_all_lottery)
+def zhangu():
+    get_content("yjz2012123", "yjz2012123")
+    sweep_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=drum_forge&&m=go_sweep&&token_uid=31973&token=6dhxKf4FVG_qAYZzjy4dqw&channel=9&lang=zh-cn&rand=1617610232&signature=db4d0f6a3abc47833cfdd1bfc1516cd1"
 
-
+def baowulianhua(content):
+    #check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=jade_tower&&m=index&&token_uid=31973&token=" +content["token"] + "&channel=9&lang=zh-cn&rand=1620206249&signature=2d16bf7b1e99900d9fdc74ce009ef844"
+    baowulianhua_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=jade_tower&&m=fight_refine&&token_uid=31973&token=" +content["token"] + "&channel=9&lang=zh-cn&rand=1620205970&signature=2905f94cd5959ea7d7007fafbc835932"
+    for i in range(9):
+        requests.post(
+            baowulianhua_url,
+            data={"refine_id": 15, "token": content["token"]})
 if __name__ == "__main__":
     # for i in range(14):
     #     qixielueduo()
@@ -574,11 +584,13 @@ if __name__ == "__main__":
     # token = get_content("123456","buwzzxh52")["token"]
     # longzhou(token)
 
-    all_longzhou()
-    all_longzhou()
+    # all_longzhou()
+    # all_longzhou()
     # # xinnian_rob()
-    # all_longzhou("buy")
+    #all_longzhou("buy")
     # # xiaohao_donation()
+    #all_longzhou("buy")
+    # all_longzhou("buy")
     # all_longzhou("buy")
     # tuitu()
     # response = requests.post("http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=worldboss&&m=battle&&token_uid=31973&token=FS5ybWAd6z6nnApI33oYJg&channel=9&lang=zh-cn&rand=15600525866585&now=0")
@@ -592,10 +604,22 @@ if __name__ == "__main__":
     # print(json.loads(re.content.decode()))
 
     # r = requests.post(
-    #  "http://s32a.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
+    #  "http://s32a.game.baozouwushuang.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=15509886868924&devicetoken=0000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
     # content = r.content.decode()
     # content = json.loads(content)
-    # donate(content,2200)
+    content = get_content("yjz2012123", "yjz2012123")
+    # url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=quyuan_festival&&m=burn_grass&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1616120707&signature=c6a6e118b270542aa586a7fad942e152"
+    # url2 = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=quyuan_festival&&m=grass_index&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1616120707&signature=c6a6e118b270542aa586a7fad942e152"
+    # for i in range(300):
+    #     requests.post(url)
+    #     requests.post(url2)
+
+    # choose_tribe = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=happy_double_festival&&m=treasure_hunter&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1617400608&signature=23da00a4e3973ec3c1bda1f436d3e713"
+    # tanbao_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=happy_double_festival&&m=treasure_hunter&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1617303308&signature=eb5f258c9e5be321af9d9a3b94255d88&tribe=1"
+    # for i in range(66):
+    #     re = requests.post(tanbao_url)
+    #     time.sleep(0.5)
+    #     print(json.loads(re.content.decode()))
     # for i in range(26):
     #    chaogong("a")
     # response = requests.post("http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=15565922387968&p=3")
@@ -676,9 +700,9 @@ if __name__ == "__main__":
     #     for t in q:
     #         t.join()
     # queue = []
-    # #queue.append(threading.Thread(target=xinghun,args=(blue_url,32000)))
-    # queue.append(threading.Thread(target=xinghun, args=(yellow_url,300)))
-    # #queue.append(threading.Thread(target=xinghun, args=(purple_url,100)))
+    # #queue.append(threading.Thread(target=xinghun,args=(blue_url,16000)))
+    # #queue.append(threading.Thread(target=xinghun, args=(yellow_url,8000)))
+    # queue.append(threading.Thread(target=xinghun, args=(purple_url,50)))
     # for t in queue:
     #     t.start()
     # for t in queue:
@@ -703,11 +727,28 @@ if __name__ == "__main__":
     #     "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
     # content = r.content.decode()
     # content = json.loads(content)
-    #
-    #
+    # #
+    # #
     # url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=essence_map&&m=pk&&d=newequip&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=15542097741062&monster_id="
     # for j in range(1,4):
     #     for k in range(1, 4):
     #         for i in range(1,11):
     #
     #             requests.post(url + str(i)+"&id="+str(j)+"&diff_id="+str(k))
+    # # url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=beauty&&m=conversion_chip&&token_uid=31973&token=eTUqRvGKyM0kQF1BNuXyYg&channel=9&lang=zh-cn&rand=1615098074&signature=9fc89675a7e0466d6c6dbf4d7a34c4b4&beauty_id=7"
+    # # for i in range(45):
+    # # #     requests.post(url)
+    # zhangu_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=drum_forge&&m=go_sweep&&token_uid=31973&token="+content["token"]+"&channel=9&lang=zh-cn&rand=1619118946&signature=c5fa3bc3f15744220da4bf3c9e0553d5&materials_id=50&l={}&s={}&check=1"
+    # for l in range(18, 20):
+    #     for s in range(1, 8):
+    #         requests.post(zhangu_url.format(l, s))
+    # check_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&&m=get_mission_list&&token_uid=31973&token="+content["token"]+"&channel=9&lang=zh-cn&rand=1619327579&signature=4c7e6040e5ffce732c4a33dedbf5cabd&l=20s=1"
+    # zhangu_huangjiinurl = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&&m=action&&token_uid=31973&token="+content["token"]+"&channel=9&lang=zh-cn&rand=1619119451&signature=3ea9458557058f122bdee856db05b525&l=20&s=1&times=5&id="
+    # requests.post(check_url)
+    # for i in range(1, 8):
+    #     requests.post(zhangu_huangjiinurl + "i")
+    baowulianhua(content)
+
+
+
+        
