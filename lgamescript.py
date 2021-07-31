@@ -439,7 +439,7 @@ def all_longzhou(buy="notbuy"):
         #requests.post(yuanbao_url)
         print(user_info[i])
         if buy == "buy" and user_info[0] != "yjz2012123":
-            buytimes = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=go_boating&&m=buy_time&&token_uid=31973&token=" + token + "&channel=1&lang=zh-cn&rand=156986608815118"
+            buytimes = "http://bzws-s32.game.zhanyougame.com/index.php?v=undefined&c=go_boating&&m=buy_time&&token_uid=31973&token=" + token + "&channel=1&lang=zh-cn&rand=15698660881518"
             requests.post(buytimes)
         try:
             longzhou(token)
@@ -574,7 +574,99 @@ def baowulianhua(content):
         requests.post(
             baowulianhua_url,
             data={"refine_id": 15, "token": content["token"]})
+def join_room(token, id):
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=peace_art&&m=quick_join_team&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=1620279608&signature=e899a891901a67ffd0413df9c74c82d3"
+    start = 100 * id
+    end = 100 * (id + 1)
+    # for i in range(start, end):
+    #     pwd = str(i)
+    #     pwd = "0" * (4 - len(pwd)) + pwd
+    #     re = json.loads(requests.post(url,data={"id":1732,"pwd":pwd,"token":token}).content.decode())
+    #     while "status" in re and re["status"] == 11:
+    #         re = json.loads(requests.post(url, data={"id": 1732, "pwd": pwd, "token": token}).content.decode())
+    #         if "status" in re and re["status"] == 1:
+    #             print(pwd)
+    #             print(re)
+    #             exit(0)
+    #     print(re)
+    file = open("password/password" + str(id) + ".txt")
+    used_password_last = start
+    try:
+        used_password_last = int(file.readlines()[-1].strip()) + 1
+    except:
+        pass
+    file_appender = open("password/password" + str(id) + ".txt", "a")
+    room_id = 1683
+    for i in range(used_password_last, end):
+        pwd = str(i)
+        pwd = "0" * (4 - len(pwd)) + pwd
+        re = json.loads(requests.post(url, data={"id": room_id, "pwd": pwd, "token": token}).content.decode())
+        while "status" in re and re["status"] == 11:
+            re = json.loads(
+                requests.post(url, data={"id": room_id, "pwd": pwd, "token": token}).content.decode())
+            if "status" in re and re["status"] == 1:
+                print(pwd)
+                print(re)
+                answer = open("password/answer", 'w')
+                answer.write(pwd)
+                exit(0)
+        print(re)
+        print(pwd)
+        file_appender.write(pwd + "\n")
+        file_appender.flush()
+def join_jade_room(token, id):
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=jade_tower&&m=join_room&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=1620328888&signature=e976067821a526438fdd6fe8de08d880"
+    start = 100 * id
+    end = 100 * (id + 1)
+    file = open("password/password" + str(id)+".txt")
+    used_password_last = start
+    try:
+        used_password_last = int(file.readlines()[-1].strip()) + 1
+    except:
+        pass
+    file_appender = open("password/password"+str(id)+".txt", "a")
+    room_id = 42496
+    for i in range(used_password_last, end):
+        pwd = str(i)
+        pwd = "0" * (4 - len(pwd)) + pwd
+        re = json.loads(requests.post(url, data={"room_id": room_id, "password": pwd, "token": token}).content.decode())
+        while "status" in re and re["status"] == 11:
+            re = json.loads(requests.post(url, data={"room_id": room_id, "password": pwd, "token": token}).content.decode())
+            if "status" in re and re["status"] == 1:
+                print(pwd)
+                print(re)
+                answer = open("password/answer", 'w')
+                answer.write(pwd)
+                exit(0)
+        print(re)
+        print(pwd)
+        file_appender.write(pwd + "\n")
+        file_appender.flush()
+def check_omitted(token):
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=jade_tower&&m=join_room&&token_uid=31973&token=" + token + "&channel=9&lang=zh-cn&rand=1620328888&signature=e976067821a526438fdd6fe8de08d880"
+    omitted = ['3604', '3605', '3606', '3607', '3608', '3609', '3610', '3611', '3612', '3613', '3614', '3615', '3616', '3617', '3618', '3619', '3620', '3621', '3622', '3623', '3624', '3625', '3626', '3627', '3628', '3629', '3630', '3631', '3632', '3633', '3634', '3635', '3636', '3637', '3638', '3639', '3640', '3641', '3642', '3643', '3644', '3645', '3646', '3647', '3648', '3649', '3650', '3651', '3652', '3653', '3654', '3655', '3656', '3657', '3658', '3659', '3660', '3661', '3662', '3663', '3664', '3665', '3666', '3667', '3668', '3669', '3670', '3671', '3672', '3673', '3674', '3675', '3676', '3677', '3678', '3679', '3680', '3681', '3682', '3683', '3684', '3685', '3686', '3687', '3688', '3689', '3690', '3691', '3692', '3693', '3694', '3695', '3696', '3697', '3698', '3699']
+    for pwd in omitted:
+        re = json.loads(requests.post(url, data={"room_id": 34722, "passw": pwd, "token": token}).content.decode())
+        while "status" in re and re["status"] == 11:
+            re = json.loads(requests.post(url, data={"room_id": 34722, "pwd": pwd, "token": token}).content.decode())
+            if "status" in re and re["status"] == 1:
+                print(pwd)
+                print(re)
+                answer = open("password/answer", 'w')
+                answer.write(pwd)
+                exit(0)
+        print(pwd)
+        print(re)
+
+def vipReward():
+    getVipScoreUrl = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=logined&&m=get_reward&&token_uid=31973&token=MoAS2-Yg-lF4-FmByD0FHA&channel=9&lang=zh-cn&rand=1626984151&signature=36838adba0a1d70b92012636acf7f094&id=165"
+    getVipReward = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=vipwage&&m=get_vip_wage&&token_uid=31973&token=MoAS2-Yg-lF4-FmByD0FHA&channel=9&lang=zh-cn&rand=1626984151&signature=36838adba0a1d70b92012636acf7f094"
 if __name__ == "__main__":
+
+
+
+    # while True:
+    #     pass
     # for i in range(14):
     #     qixielueduo()
     # tuitu(1,2)
@@ -584,10 +676,10 @@ if __name__ == "__main__":
     # token = get_content("123456","buwzzxh52")["token"]
     # longzhou(token)
 
-    # all_longzhou()
-    # all_longzhou()
+    #all_longzhou()
+    #all_longzhou()
     # # xinnian_rob()
-    #all_longzhou("buy")
+    # all_longzhou("buy")
     # # xiaohao_donation()
     #all_longzhou("buy")
     # all_longzhou("buy")
@@ -614,12 +706,12 @@ if __name__ == "__main__":
     #     requests.post(url)
     #     requests.post(url2)
 
-    # choose_tribe = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=happy_double_festival&&m=treasure_hunter&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1617400608&signature=23da00a4e3973ec3c1bda1f436d3e713"
-    # tanbao_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=happy_double_festival&&m=treasure_hunter&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1617303308&signature=eb5f258c9e5be321af9d9a3b94255d88&tribe=1"
-    # for i in range(66):
-    #     re = requests.post(tanbao_url)
-    #     time.sleep(0.5)
-    #     print(json.loads(re.content.decode()))
+    choose_tribe = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=happy_double_festival&&m=treasure_hunter&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1617400608&signature=23da00a4e3973ec3c1bda1f436d3e713"
+    tanbao_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=happy_double_festival&&m=treasure_hunter&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=1617303308&signature=eb5f258c9e5be321af9d9a3b94255d88&tribe=1"
+    for i in range(44):
+        re = requests.post(tanbao_url)
+        time.sleep(0.5)
+        print(json.loads(re.content.decode()))
     # for i in range(26):
     #    chaogong("a")
     # response = requests.post("http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=fukubukuro&&m=mine&&token_uid=31973&token=GotTWqgn3UIeryJn-jhBsA&channel=9&lang=zh-cn&rand=15565922387968&p=3")
@@ -686,11 +778,12 @@ if __name__ == "__main__":
         requests.post(purple_url)
     """
 
+
     # token = get_content("yjz2012123","yjz2012123")['token']
     # yellow_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246113594820&refine_type=1&id=2"
     # blue_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246130416038&id=1&refine_type=1"
     # purple_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=star&m=refining&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246130416038&id=3&refine_type=1"
-    # trade_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token="+token+"&channel=9&lang=zh-cn&rand=155246249389873"
+    # trade_url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=tavern&&m=trade_batch&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=155246249389873"
     # def xinghun(url,time):
     #     q = []
     #     for i in range(time):
@@ -700,6 +793,7 @@ if __name__ == "__main__":
     #     for t in q:
     #         t.join()
     # queue = []
+    # queue.append(threading.Thread(target=xinghun, args=(trade_url, 2000)))
     # #queue.append(threading.Thread(target=xinghun,args=(blue_url,16000)))
     # #queue.append(threading.Thread(target=xinghun, args=(yellow_url,8000)))
     # queue.append(threading.Thread(target=xinghun, args=(purple_url,50)))
@@ -708,7 +802,7 @@ if __name__ == "__main__":
     # for t in queue:
     #     t.join()
 
-    # queue.append(threading.Thread(target=xinghun, args=(trade_url, 2000)))
+
     # xinghun(blue_url,2000)
     # for t in queue:
     #     t.start()
@@ -727,8 +821,8 @@ if __name__ == "__main__":
     #     "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=login&m=user&token=&channel=9&lang=zh-cn&mac=155098868678924&devicetoken=000000&u=yjz2012123&p=yjz2012123&adid&channel=9&token=")
     # content = r.content.decode()
     # content = json.loads(content)
-    # #
-    # #
+    #
+    #
     # url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=essence_map&&m=pk&&d=newequip&&token_uid=31973&token="+content['token']+"&channel=9&lang=zh-cn&rand=15542097741062&monster_id="
     # for j in range(1,4):
     #     for k in range(1, 4):
@@ -747,7 +841,20 @@ if __name__ == "__main__":
     # requests.post(check_url)
     # for i in range(1, 8):
     #     requests.post(zhangu_huangjiinurl + "i")
-    baowulianhua(content)
+    # baowulianhua(content)
+    # for i in range(100):
+    #     file_appender = open("password/password"+str(i)+".txt", "w")
+    # token = content['token']
+    # queue = []
+    # for i in range(100):
+    #     queue.append(threading.Thread(target=join_jade_room, args=(token, i)))
+    # for t in queue:
+    #     t.start()
+    # for t in queue:
+    #     t.join()
+    # join_room(token, 0)
+    #check_omitted(content['token'])
+
 
 
 

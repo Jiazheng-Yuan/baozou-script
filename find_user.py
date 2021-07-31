@@ -46,4 +46,10 @@ def crack_password(u):
 
 if __name__ == "__main__":
 
-    hack()
+    url = "http://bzws-s32.game.zhanyougame.com/index.php?v=0&c=map&&m=action&&token_uid=31973&token=KXf4WBcWOMWar277lMcvBg&channel=9&lang=zh-cn&rand=1624649409&signature=2af0a3f9706b050580a5f3a87c341e5c&l=20&s=4&id=3"
+    for i in range(300):
+        content = json.loads(requests.post(url).content.decode())
+        print(content)
+        if content['info']['win'] > 0:
+            print("good job")
+            break
